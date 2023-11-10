@@ -1,33 +1,30 @@
-let continuar = true
+let mediageral = 0 
+let qtdHomens = 0
+let qtdMulheresAcimade7 = 0
+let maiorNotaHomens = 0
+let contador = 1
 
-let notaAluno = []
-let alunos = []
-let m = 0;
-let maiorque7f = 0;
-let maiornotam = 0
-let mediaGeral = 0
+while(contador <= 10)
+nota = parseInt(prompt('Diite a nota do ' + contador + ' aluno'))
+sexo = prompt('Digite o sexo do aluno (M/F)')
 
-while (continuar == true) {
-    let qualnota = notaAluno.push(parseInt(prompt('Qual a nota do aluno?')))
-    let mf = (prompt('Qual o sexo do aluno? (M/F)'))
-    let continuarNotas = prompt('Deseja continuar cadastrando notas? (S/N)')
-    if (continuarNotas == 'n') {
-        continuar = false
+if(sexo == 'm'){
+    if(nota > maiorNotaHomens){
+        maiorNotaHomens = nota
     }
-    if (qualnota > 7 && mf == 'f') {
-        maiorque7f++
-    }
+    qtdHomens++
 
-    if (qualnota > 0 && mf == 'm') {
-        maiornotam = qualnota
+    if(sexo == 'f' && nota > 7){
+        qtdMulheresAcimade7++
     }
 
-    if (mf == 'm') {
-        m++
-    }
-    alunos++
+    mediageral += nota
+    contador++
 }
 
-for (let i = notaAluno; i < notaAluno.length; i++) {
-    mediaGeral = notaAluno / alunos
-}
+mediageral = mediageral / 10
+
+console.log('A média geral dos alunos foi: ' + mediageral)
+console.log('A quantidade de homens foi: ' + qtdHomens)
+console.log('A quantidade de mulheres que tiveram nota acima de 7 foi: ' + qtdMulheresAcimade7)
+console.log('A maior nota entre os homens foi: ' + maiorNotaHomens)
